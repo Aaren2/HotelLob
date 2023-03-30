@@ -25,12 +25,26 @@ namespace HotelLob.Windows
     /// </summary>
     public partial class RegistrationWindow2 : Window
     {
+        private string Kapcha;
+        private void AddKapcha()
+        {
+            string Kapcha = "";
+            Random random = new Random();
+            for (int i = 1; i < 8; i++)
+            {
+                char c = Convert.ToChar(random.Next(65, 122));
+                Kapcha += c;
+            }
+            TbKapcha.Text = Kapcha;
+            this.Kapcha = Kapcha;
+        }
         public RegistrationWindow2()
         {
             InitializeComponent();
             CmbGender.ItemsSource = context.Gender.ToList();
             CmbGender.SelectedIndex = 0;
             CmbGender.DisplayMemberPath = "Gender1";
+            AddKapcha();
         }
 
         private void TextBlock_MouseLeftButtonUpAuth(object sender, MouseButtonEventArgs e)
@@ -141,6 +155,12 @@ namespace HotelLob.Windows
             if (authUser1 != null)
             {
                 MessageBox.Show("Такой логин занят");
+                return;
+            }
+            if (this.Kapcha != PbKapcha.Password)
+            {
+                MessageBox.Show("Капча указана неправильно");
+                AddKapcha();
                 return;
             }
             else

@@ -10,10 +10,17 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="TbTime" />
+        <Menu>
+            <MenuItem Header="Windows" >
+                <MenuItem x:Name="MIAdmin" Header="Admin" Click="MenuItemAdminWindow_Click"  >
+                </MenuItem>
+                <MenuItem x:Name="Exit" Header="Exit" Click="Exit_Click">
+                </MenuItem>
+            </MenuItem>
+        </Menu>
         <DataGrid Name="dataGrid1" AutoGenerateColumns="False" Grid.Row="1"  >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="DateStart" Width="135" Binding="{Binding DateStart}" CanUserResize="False"/>

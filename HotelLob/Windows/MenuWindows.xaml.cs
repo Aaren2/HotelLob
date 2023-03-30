@@ -18,7 +18,10 @@ using System.Windows.Shapes;
 using HotelLob.ClassHelper;
 using HotelLob.DB;
 using static HotelLob.ClassHelper.EFClass;
-
+using HotelLob.Pages;
+using System.Net;
+using static System.Net.Mime.MediaTypeNames;
+using System.ComponentModel;
 
 
 
@@ -45,8 +48,14 @@ namespace HotelLob.Windows
             }
             else
             {
-                MenuFrame.Content = new TrackingPage(authorization);
+                OpenTrakingPage(authorization);
             }
+        }
+        public void OpenTrakingPage(DB.Login authorization) {
+            MenuFrame.Content = new TrackingPage(authorization,this);
+        }
+        public void OpenAdminPage(DB.Login authorization) {
+            MenuFrame.Content = new AdminPage(authorization,this);
         }
         private void Window_Closed(object sender, EventArgs e)
         {

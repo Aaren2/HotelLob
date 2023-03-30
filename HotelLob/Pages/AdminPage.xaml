@@ -10,29 +10,55 @@
 
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Menu>
-            <MenuItem Header="Filter">
-                <MenuItem Header="DateOrder">
-                    <MenuItem Header="Old" Click="MenuItemDateOrderOld_Click"></MenuItem>
-                    <MenuItem Header="New" Click="MenuItemDateOrderNew_Click"></MenuItem>
+        <Menu >
+            <MenuItem Header="Windows" >
+                <MenuItem Header="Tracking" Click="MenuItemTrackingWindow_Click">
                 </MenuItem>
-                <MenuItem Header="DateStart">
-                    <MenuItem Header="Old" Click="MenuItemDateStartOld_Click"></MenuItem>
-                    <MenuItem Header="New" Click="MenuItemDateStartNew_Click"></MenuItem>
+                <MenuItem Header="Exit" Click="MenuItemDateOrderSerch_Click">
                 </MenuItem>
-                <MenuItem Header="DateEnd">
-                    <MenuItem Header="Old" Click="MenuItemDateEndOld_Click"></MenuItem>
-                    <MenuItem Header="New" Click="MenuItemDateEndNew_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Serch" >
+                <MenuItem Header="IdOrder" Click="MenuItemIdOrderSerch_Click">
+                    <TextBox x:Name="TbIdOrderSerch" Width="50" Height="20"  />
+                </MenuItem>
+                <MenuItem Header="DateOrder" Click="MenuItemDateOrderSerch_Click">
+                    <TextBox x:Name="TbDateOrderSerch" Width="150" Height="20"  />
+                </MenuItem>
+                <MenuItem Header="IdEmployee" Click="MenuItemIdEmployeeSerch_Click">
+                    <TextBox x:Name="TbIdEmployeeSerch" Width="50" Height="20"  />
+                </MenuItem>
+                <MenuItem Header="IdClient" Click="MenuItemIdClientSerch_Click">
+                    <TextBox x:Name="TbIdClientSerch" Width="50" Height="20"  />
+                </MenuItem>
+                <MenuItem Header="DateOrder" Click="MenuItemDateOrderSerch_Click">
+                    <TextBox x:Name="TbDateStartSerch" Width="150" Height="20"  />
+                </MenuItem>
+                <MenuItem Header="DateOrder" Click="MenuItemDateOrderSerch_Click">
+                    <TextBox x:Name="TbDateEndSerch" Width="150" Height="20"  />
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <WrapPanel Grid.Row="1">
-            <DataGrid Name="dataGrid1" AutoGenerateColumns="False" SelectionChanged="dataGrid1_SelectionChanged" >
+        <Menu Grid.Column="1">
+            <MenuItem Header="Serch" >
+                <MenuItem Header="DateOrder" Click="MenuItemIdOrderRoomSerch_Click">
+                    <TextBox  x:Name="TbIdOrderRoomSerch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Header="DateStart" Click="MenuItemIdRoomRoomSerch_Click">
+                    <TextBox  x:Name="TbIdRoomRoomSerch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        
+        <DataGrid Name="dataGrid1" AutoGenerateColumns="False" SelectionChanged="dataGrid1_SelectionChanged"  Grid.Row="1">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="IdOrder" Width="60"   Binding="{Binding IdOrder}" CanUserResize="False" />
                     <DataGridTextColumn Header="DateOrder" Width="135" Binding="{Binding DateOrder}" CanUserResize="False"/>
@@ -40,17 +66,18 @@
                     <DataGridTextColumn Header="IdClient" Width="60"  Binding="{Binding IdClient}" CanUserResize="False"/>
                     <DataGridTextColumn Header="DateStart" Width="135" Binding="{Binding DateStart}" CanUserResize="False"/>
                     <DataGridTextColumn Header="DateEnd" Width="135"   Binding="{Binding DateEnd}" CanUserResize="False"/>
+
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid Name="dataGrid2" AutoGenerateColumns="False">
+        <DataGrid Name="dataGrid2" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="1" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="IdOrder" Width="60"   Binding="{Binding IdOrder}" CanUserResize="False" />
                     <DataGridTextColumn Header="IdRoom" Width="60" Binding="{Binding IdRoom}" CanUserResize="False"/>
                 </DataGrid.Columns>
             </DataGrid>
 
-        </WrapPanel>
-        <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="50,0,0,0" >
             <Button Name="BtnAdd" FontSize="20" Width="200" Content="Добавить заказ" Margin="0,0,50,0" Click="BtnAdd_Click" />
             <Button Name="BtnUpd" FontSize="20" Width="200" Content="Изменить заказ" Click="BtnUpd_Click"/>
             <Button Name="BtnDel" FontSize="20" Width="200" Content="Удалить заказ" Margin="50,0,0,0" Click="BtnDel_Click"/>

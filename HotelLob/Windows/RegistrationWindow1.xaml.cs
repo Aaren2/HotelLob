@@ -24,12 +24,24 @@ namespace HotelLob.Windows
     /// </summary>
     public partial class RegistrationWindow1 : Window
     {
+        private string Kapcha;
+        private void AddKapcha() {
+            string Kapcha="";
+            Random random = new Random();
+            for (int i = 1;i<8;i++) {
+                char c = Convert.ToChar(random.Next(65,122));
+                Kapcha+= c;
+            }
+            TbKapcha.Text = Kapcha;
+            this.Kapcha = Kapcha;
+        }
         public RegistrationWindow1()
         {
             InitializeComponent();
             CmbGender.ItemsSource = context.Gender.ToList();
             CmbGender.SelectedIndex = 0;
             CmbGender.DisplayMemberPath = "Gender1";
+            AddKapcha();
         }
         private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -96,6 +108,12 @@ namespace HotelLob.Windows
                 MessageBox.Show("Такой логин уже используется");
                 return;
             }
+            if (this.Kapcha != PbKapcha.Password)
+            {
+                MessageBox.Show("Капча указана неправильно");
+                AddKapcha();
+                return;
+            }
             else
             {
                 DB.Client client1 = new DB.Client();
@@ -117,7 +135,13 @@ namespace HotelLob.Windows
                 context.Login.Add(authorization);
 
                 context.SaveChanges();
+
+                AutorizationWindow autorizationWindow = new AutorizationWindow();
+                autorizationWindow.Show();
+                this.Close();
             }
         }
+
+
     }
 }

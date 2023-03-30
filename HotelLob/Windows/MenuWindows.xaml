@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MenuWindows" Height="450" Width="800" Closed="Window_Closed"  >
     <Grid >
-        <Frame Name="MenuFrame" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="0"  />
+        <Frame Name="MenuFrame" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="0"  NavigationUIVisibility="Hidden"/>
 
     </Grid>
 </Window>

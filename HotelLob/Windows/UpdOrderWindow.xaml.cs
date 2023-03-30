@@ -30,7 +30,7 @@ namespace HotelLob.Windows
         private DB.Login authorization;
         private int IdOrder;
         private OrderRoom orderRoomCheck = new OrderRoom();
-        public UpdOrderWindow()
+        public UpdOrderWindow(DB.Login authorization, int IdOrder)
         {
             InitializeComponent();
             CmbClient.ItemsSource = context.Client.ToList();
