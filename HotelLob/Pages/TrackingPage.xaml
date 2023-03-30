@@ -15,10 +15,13 @@
         </Grid.RowDefinitions>
         <Menu>
             <MenuItem Header="Windows" >
-                <MenuItem x:Name="MIAdmin" Header="Admin" Click="MenuItemAdminWindow_Click"  >
+                <MenuItem x:Name="MIEmployee" Header="Employee" Click="MenuItemEmployeeWindow_Click"  >
                 </MenuItem>
                 <MenuItem x:Name="Exit" Header="Exit" Click="Exit_Click">
                 </MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="MITimer" >
+                <MenuItem x:Name="MI"></MenuItem>
             </MenuItem>
         </Menu>
         <DataGrid Name="dataGrid1" AutoGenerateColumns="False" Grid.Row="1"  >

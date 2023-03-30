@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,18 +36,28 @@ namespace HotelLob.Pages
             dataGrid1.ItemsSource = context.Tracking.ToList().Where(i => i.IdLogin.Equals(authorization.IdLogin));
             this.authorization = authorization;
             this.menuWindows = menuWindows;
-            if (authorization.IdEmployee.Equals(null)) { 
-                MIAdmin.Visibility=Visibility.Collapsed;
+            if (authorization.IdEmployee.Equals(null)) {
+                MIEmployee.Visibility=Visibility.Collapsed;
                 Exit.Visibility = Visibility.Visible;
             }
+            Thread thread = new Thread(() =>
+            {
+                while (true)
+                {             
+                    Dispatcher.Invoke(() => MITimer.Header = (DateTime.Now - context.Tracking.ToList().Where(i => i.IdLogin.Equals(authorization.IdLogin)).Last().DateStart));
+                    Dispatcher.Invoke(() => MI.Header = DateTime.Now.ToString());
+                    Thread.Sleep(1000);
+                }
+            });
+            thread.Start();
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             menuWindows.Close();
         }
-        private void MenuItemAdminWindow_Click(object sender, RoutedEventArgs e)
+        private void MenuItemEmployeeWindow_Click(object sender, RoutedEventArgs e)
         {
-            menuWindows.OpenAdminPage(authorization);
+            menuWindows.OpenEmployeePage(authorization);
 
         }
     }

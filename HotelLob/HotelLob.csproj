@@ -143,14 +143,23 @@
     <Compile Include="Pages\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\EmployeePage.xaml.cs">
+      <DependentUpon>EmployeePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ClientPage.xaml.cs">
       <DependentUpon>ClientPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TrackingPage.xaml.cs">
       <DependentUpon>TrackingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\AddOrderWindow.xaml.cs">
-      <DependentUpon>AddOrderWindow.xaml</DependentUpon>
+    <Compile Include="Windows\AddUpdRoomWindow.xaml.cs">
+      <DependentUpon>AddUpdRoomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddUpdClientWindow.xaml.cs">
+      <DependentUpon>AddUpdClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddUpdEmployeeWindow.xaml.cs">
+      <DependentUpon>AddUpdEmployeeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\AutorizationWindow.xaml.cs">
       <DependentUpon>AutorizationWindow.xaml</DependentUpon>
@@ -164,14 +173,18 @@
     <Compile Include="Windows\RegistrationWindow2.xaml.cs">
       <DependentUpon>RegistrationWindow2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\UpdOrderWindow.xaml.cs">
-      <DependentUpon>UpdOrderWindow.xaml</DependentUpon>
+    <Compile Include="Windows\AddUpdOrderWindow.xaml.cs">
+      <DependentUpon>AddUpdOrderWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\AdminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EmployeePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -183,9 +196,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\AddOrderWindow.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Windows\AddUpdRoomWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\AddUpdClientWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\AddUpdEmployeeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\AutorizationWindow.xaml">
       <SubType>Designer</SubType>
@@ -203,7 +224,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\UpdOrderWindow.xaml">
+    <Page Include="Windows\AddUpdOrderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

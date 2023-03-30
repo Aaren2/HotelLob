@@ -44,18 +44,35 @@ namespace HotelLob.Windows
             context.SaveChanges();
             if (!authorization.IdEmployee.Equals(null))
             {
-                MenuFrame.Content = new AdminPage(authorization, this);
+                List<EmployeePost> employees = new List<EmployeePost>();
+                for (int i = 0;i< context.EmployeePost.ToList().Where(j => j.IdEmployee.Equals(authorization.IdEmployee)).Count();i++) {
+                    employees.Add(context.EmployeePost.ToList().Where(j => j.IdEmployee.Equals(authorization.IdEmployee)).ElementAtOrDefault(i));
+                    if (employees[i].IdPost.Equals(5)|| employees[i].IdPost.Equals(6)) {
+                        OpenAdminPage(authorization);
+                        i = context.EmployeePost.ToList().Where(j => j.IdEmployee.Equals(authorization.IdEmployee)).Count();
+                        return;
+                    }
+                    if (employees[i].IdPost.Equals(3)) { 
+                        OpenEmployeePage(authorization);
+                        i = context.EmployeePost.ToList().Where(j => j.IdEmployee.Equals(authorization.IdEmployee)).Count();
+                    }
+                }
+               
             }
             else
             {
                 OpenTrakingPage(authorization);
             }
         }
+        public void OpenAdminPage(DB.Login authorization)
+        {
+            MenuFrame.Content = new AdminPage(authorization, this);
+        }
         public void OpenTrakingPage(DB.Login authorization) {
             MenuFrame.Content = new TrackingPage(authorization,this);
         }
-        public void OpenAdminPage(DB.Login authorization) {
-            MenuFrame.Content = new AdminPage(authorization,this);
+        public void OpenEmployeePage(DB.Login authorization) {
+            MenuFrame.Content = new EmployeePage(authorization,this);
         }
         private void Window_Closed(object sender, EventArgs e)
         {
