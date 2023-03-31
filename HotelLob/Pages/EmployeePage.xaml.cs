@@ -1,5 +1,4 @@
-﻿using HotelLob.DB;
-using HotelLob.Windows;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +17,12 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using static HotelLob.ClassHelper.EFClass;
-using HotelLob.Windows;
-using System.Net;
-
-using HotelLob.ClassHelper;
 using HotelLob.DB;
+using HotelLob.Windows;
+using HotelLob.ClassHelper;
 using System.Threading;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
 
 namespace HotelLob.Pages
 {
@@ -52,18 +50,18 @@ namespace HotelLob.Pages
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddUpdOrderWindow addOrderWindow = new AddUpdOrderWindow(authorization,IdOrder,false);
+            AddUpdOrderWindow addOrderWindow = new AddUpdOrderWindow(authorization,IdOrder,false,menuWindows);
             addOrderWindow.Show();
-            menuWindows.Close();
+            menuWindows.Visibility = Visibility.Hidden;
         }
 
         private void BtnUpd_Click(object sender, RoutedEventArgs e)
         {
             if (IdOrder != -1)
             {
-                AddUpdOrderWindow updOrderWindow = new AddUpdOrderWindow(authorization, IdOrder,true);
+                AddUpdOrderWindow updOrderWindow = new AddUpdOrderWindow(authorization, IdOrder,true,menuWindows);
                 updOrderWindow.Show();
-                menuWindows.Close();
+                menuWindows.Visibility = Visibility.Hidden;
             }
         }
 
@@ -92,7 +90,7 @@ namespace HotelLob.Pages
 
         private void MenuItemTrackingWindow_Click(object sender, RoutedEventArgs e)
         {
-            menuWindows.OpenTrakingPage(authorization);
+            menuWindows.OpenTrackingPage(authorization);
             
         }
 
@@ -100,80 +98,40 @@ namespace HotelLob.Pages
         {
            menuWindows.Close();
         }
-
-
-
-        private void MenuItemDateOrderOld_Click(object sender, RoutedEventArgs e)
+      
+        private void MenuItemSearch_Click(object sender, RoutedEventArgs e)
         {
-            dataGrid1.ItemsSource = context.Order.ToList().OrderBy(i => i.DateOrder);
-        }
-        private void MenuItemDateOrderNew_Click(object sender, RoutedEventArgs e)
-        {
-            dataGrid1.ItemsSource = context.Order.ToList().OrderByDescending(i => i.DateOrder);
-        }
-
-        
-        private void MenuItemDateStartOld_Click(object sender, RoutedEventArgs e)
-        {
-            dataGrid1.ItemsSource = context.Order.ToList().OrderBy(i => i.DateStart);
-        }
-        private void MenuItemDateStartNew_Click(object sender, RoutedEventArgs e)
-        {
-            dataGrid1.ItemsSource = context.Order.ToList().OrderByDescending(i => i.DateStart);
-        }
-
-
-        private void MenuItemDateEndOld_Click(object sender, RoutedEventArgs e)
-        {
-            dataGrid1.ItemsSource = context.Order.ToList().OrderBy(i => i.DateEnd);
-        }
-        private void MenuItemDateEndNew_Click(object sender, RoutedEventArgs e)
-        {
-            dataGrid1.ItemsSource = context.Order.ToList().OrderByDescending(i => i.DateEnd);
-        }
-        private void MenuItemIdOrderSerch_Click(object sender, RoutedEventArgs e)
-        {
-            dataGrid1.ItemsSource = context.Order.ToList().Where(i => i.IdOrder.Equals(Convert.ToInt32(TbIdOrderSerch.Text)));
-            
-        }
-        private void MenuItemDateOrderSerch_Click(object sender, RoutedEventArgs e)
-        {
-            dataGrid1.ItemsSource = context.Order.ToList().Where(i => i.DateOrder.Equals(Convert.ToDateTime(TbDateOrderSerch.Text)));
-            
-        }
-
-        private void MenuItemIdEmployeeSerch_Click(object sender, RoutedEventArgs e)
-        {
-            dataGrid1.ItemsSource = context.Order.ToList().Where(i => i.IdEmployee.Equals(Convert.ToInt32(TbIdEmployeeSerch.Text)));
-        }
-
-
-        private void MenuItemIdClientSerch_Click(object sender, RoutedEventArgs e)
-        {
-            dataGrid1.ItemsSource = context.Order.ToList().Where(i => i.IdClient.Equals(Convert.ToInt32(TbIdClientSerch.Text)));
-            
-        }
-
-        private void MenuItemDateStartSerch_Click(object sender, RoutedEventArgs e)
-        {
-            dataGrid1.ItemsSource = context.Order.ToList().Where(i => i.DateStart.Equals(Convert.ToDateTime(TbDateStartSerch.Text)));
-            
-        }
-
-        private void MenuItemDateEndSerch_Click(object sender, RoutedEventArgs e)
-        {
-            dataGrid1.ItemsSource = context.Order.ToList().Where(i => i.DateEnd.Equals(Convert.ToDateTime(TbDateEndSerch.Text)));
-        }
-
-        private void MenuItemIdOrderRoomSerch_Click(object sender, RoutedEventArgs e)
-        {
-            dataGrid2.ItemsSource = context.OrderRoom.ToList().Where(i => i.IdOrder.Equals(Convert.ToInt32(TbIdOrderRoomSerch.Text)));
-        }
-
-        private void MenuItemIdRoomRoomSerch_Click(object sender, RoutedEventArgs e)
-        {
-            dataGrid2.ItemsSource = context.OrderRoom.ToList().Where(i => i.IdRoom.Equals(Convert.ToInt32(TbIdRoomRoomSerch.Text)));
-        }
+            MenuItem menuItem = (MenuItem)sender;
+            switch (menuItem.Name)
+            {
+                case "IdOrder":
+                    dataGrid1.ItemsSource = context.Order.ToList().Where(i => i.IdOrder.Equals(Convert.ToInt32(TbIdOrderSearch.Text)));
+                    break;
+                case "DateOrder":
+                    dataGrid1.ItemsSource = context.Order.ToList().Where(i => i.DateOrder.Equals(Convert.ToDateTime(TbDateOrderSearch.Text)));
+                    break;
+                case "IdEmployee":
+                    dataGrid1.ItemsSource = context.Order.ToList().Where(i => i.IdEmployee.Equals(Convert.ToInt32(TbIdEmployeeSearch.Text)));
+                    break;
+                case "IdClient":
+                    dataGrid1.ItemsSource = context.Order.ToList().Where(i => i.IdClient.Equals(Convert.ToInt32(TbIdClientSearch.Text)));
+                    break;
+                case "DateStart":
+                    dataGrid1.ItemsSource = context.Order.ToList().Where(i => i.DateStart.Equals(Convert.ToDateTime(TbDateStartSearch.Text)));
+                    break;
+                case "DateEnd":
+                    dataGrid1.ItemsSource = context.Order.ToList().Where(i => i.DateEnd.Equals(Convert.ToDateTime(TbDateEndSearch.Text)));
+                    break;
+                case "IdOrderRoom":
+                    dataGrid2.ItemsSource = context.OrderRoom.ToList().Where(i => i.IdOrder.Equals(Convert.ToInt32(TbIdOrderRoomSearch.Text)));
+                    break;
+                case "IdRoomRoom":
+                    dataGrid2.ItemsSource = context.OrderRoom.ToList().Where(i => i.IdRoom.Equals(Convert.ToInt32(TbIdRoomRoomSearch.Text)));
+                    break;
+                default:
+                    break;
+            }
+        }     
     }
 }
 

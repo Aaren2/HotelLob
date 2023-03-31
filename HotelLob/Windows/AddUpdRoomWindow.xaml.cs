@@ -1,5 +1,4 @@
-﻿using HotelLob.DB;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -31,8 +30,9 @@ namespace HotelLob.Windows
         private DB.Login authorization;
         private int IdRoom;
         private Room RoomCheck = new Room();
- 
-        public AddUpdRoomWindow(DB.Login authorization, int IdRoom,bool True)
+        private MenuWindows menuWindows;
+
+        public AddUpdRoomWindow(DB.Login authorization, int IdRoom,bool True, MenuWindows menuWindows)
         {
             InitializeComponent();
             CmbTypeRoom.ItemsSource = context.TypeRoom.ToList();
@@ -41,6 +41,7 @@ namespace HotelLob.Windows
             this.authorization = authorization;
             this.True = True;
             this.IdRoom = IdRoom;
+            this.menuWindows= menuWindows;
             if (True)
             {
                 BtnLogin.Content = "Обновить";
@@ -48,11 +49,11 @@ namespace HotelLob.Windows
 
             }
 
+            this.menuWindows = menuWindows;
         }
         private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MenuWindows menuWindows = new MenuWindows(authorization);
-            menuWindows.Show();
+            menuWindows.Visibility = Visibility.Visible;
             this.Close();
         }
 

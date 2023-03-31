@@ -9,26 +9,34 @@
       Title="TrackingPage">
 
     <Grid>
+        <Grid.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Red" />
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Menu>
             <MenuItem Header="Windows" >
-                <MenuItem x:Name="MIEmployee" Header="Employee" Click="MenuItemEmployeeWindow_Click"  >
+                <MenuItem x:Name="MIEmployee" Header="Employee" Click="MenuItemEmployeeWindow_Click" Visibility="Collapsed"  >
+                </MenuItem>
+                
+                <MenuItem x:Name="MIClient" Header="Client" Click="MenuItemClientWindow_Click"  >
                 </MenuItem>
                 <MenuItem x:Name="Exit" Header="Exit" Click="Exit_Click">
                 </MenuItem>
             </MenuItem>
+            
             <MenuItem x:Name="MITimer" >
                 <MenuItem x:Name="MI"></MenuItem>
             </MenuItem>
         </Menu>
-        <DataGrid Name="dataGrid1" AutoGenerateColumns="False" Grid.Row="1"  >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="DateStart" Width="135" Binding="{Binding DateStart}" CanUserResize="False"/>
+        
+        <DataGrid Name="dataGrid1" AutoGenerateColumns="False" Grid.Row="1" LoadingRow="dataGrid1_LoadingRow">
+            <DataGrid.Columns  >
+                <DataGridTextColumn Header="DateStart" Width="135" Binding="{Binding DateStart}" CanUserResize="False" />
                 <DataGridTextColumn Header="DateEnd" Width="135" Binding="{Binding DateEnd}" CanUserResize="False"/>
-                <DataGridTextColumn Header="Error"  Binding="{Binding IdClient}" CanUserResize="False"/>
+                <DataGridTextColumn Header="Error"  Binding="{Binding Error}" CanUserResize="False"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

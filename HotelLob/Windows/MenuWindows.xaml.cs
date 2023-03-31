@@ -61,15 +61,19 @@ namespace HotelLob.Windows
             }
             else
             {
-                OpenTrakingPage(authorization);
+                OpenClientPage(authorization);
             }
         }
         public void OpenAdminPage(DB.Login authorization)
         {
             MenuFrame.Content = new AdminPage(authorization, this);
         }
-        public void OpenTrakingPage(DB.Login authorization) {
-            MenuFrame.Content = new TrackingPage(authorization,this);
+        public void OpenClientPage(DB.Login authorization) {
+            MenuFrame.Content = new ClientPage(authorization,this);
+        }
+        public void OpenTrackingPage(DB.Login authorization)
+        {
+            MenuFrame.Content = new TrackingPage(authorization, this);
         }
         public void OpenEmployeePage(DB.Login authorization) {
             MenuFrame.Content = new EmployeePage(authorization,this);
@@ -77,6 +81,7 @@ namespace HotelLob.Windows
         private void Window_Closed(object sender, EventArgs e)
         {
             tracking.DateEnd = DateTime.Now;
+            tracking.Error = "Closed";
             context.SaveChanges();
         }
 

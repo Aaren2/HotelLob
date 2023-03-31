@@ -1,5 +1,4 @@
-﻿using HotelLob.DB;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -31,8 +30,9 @@ namespace HotelLob.Windows
         private DB.Login authorization;
         private int IdOrder;
         private OrderRoom orderRoomCheck = new OrderRoom();
- 
-        public AddUpdOrderWindow(DB.Login authorization, int IdOrder,bool True)
+        private MenuWindows menuWindows;
+
+        public AddUpdOrderWindow(DB.Login authorization, int IdOrder,bool True, MenuWindows menuWindows)
         {
             InitializeComponent();
             CmbClient.ItemsSource = context.Client.ToList();
@@ -42,6 +42,7 @@ namespace HotelLob.Windows
             this.authorization = authorization;
             this.True = True;
             this.IdOrder = IdOrder;
+            this.menuWindows = menuWindows;
             if (True)
             {
                 BtnLogin.Content = "Обновить";
@@ -51,11 +52,11 @@ namespace HotelLob.Windows
                 DPDE.SelectedDate = context.Order.ToList().Where(i => i.IdOrder == this.IdOrder).FirstOrDefault().DateEnd;
             }
 
+            this.menuWindows = menuWindows;
         }
         private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MenuWindows menuWindows = new MenuWindows(authorization);
-            menuWindows.Show();
+            menuWindows.Visibility = Visibility.Visible;
             this.Close();
         }
 

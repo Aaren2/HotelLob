@@ -23,37 +23,37 @@
             <MenuItem Header="Windows" >
                 <MenuItem Header="Tracking" Click="MenuItemTrackingWindow_Click">
                 </MenuItem>
-                <MenuItem Header="Exit" Click="MenuItemDateOrderSerch_Click">
+                <MenuItem Header="Exit" Click="Exit_Click">
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Serch" >
-                <MenuItem Header="IdOrder" Click="MenuItemIdOrderSerch_Click">
-                    <TextBox x:Name="TbIdOrderSerch" Width="50" Height="20"  />
+            <MenuItem Header="Search" >
+                <MenuItem Header="IdOrder" Click="MenuItemSearch_Click">
+                    <TextBox x:Name="TbIdOrderSearch" Width="50" Height="20"  />
                 </MenuItem>
-                <MenuItem Header="DateOrder" Click="MenuItemDateOrderSerch_Click">
-                    <TextBox x:Name="TbDateOrderSerch" Width="150" Height="20"  />
+                <MenuItem Header="DateOrder" Click="MenuItemSearch_Click">
+                    <TextBox x:Name="TbDateOrderSearch" Width="150" Height="20"  />
                 </MenuItem>
-                <MenuItem Header="IdEmployee" Click="MenuItemIdEmployeeSerch_Click">
-                    <TextBox x:Name="TbIdEmployeeSerch" Width="50" Height="20"  />
+                <MenuItem Header="IdEmployee" Click="MenuItemSearch_Click">
+                    <TextBox x:Name="TbIdEmployeeSearch" Width="50" Height="20"  />
                 </MenuItem>
-                <MenuItem Header="IdClient" Click="MenuItemIdClientSerch_Click">
-                    <TextBox x:Name="TbIdClientSerch" Width="50" Height="20"  />
+                <MenuItem Header="IdClient" Click="MenuItemSearch_Click">
+                    <TextBox x:Name="TbIdClientSearch" Width="50" Height="20"  />
                 </MenuItem>
-                <MenuItem Header="DateOrder" Click="MenuItemDateOrderSerch_Click">
-                    <TextBox x:Name="TbDateStartSerch" Width="150" Height="20"  />
+                <MenuItem Header="DateStart" Click="MenuItemSearch_Click">
+                    <TextBox x:Name="TbDateStartSearch" Width="150" Height="20"  />
                 </MenuItem>
-                <MenuItem Header="DateOrder" Click="MenuItemDateOrderSerch_Click">
-                    <TextBox x:Name="TbDateEndSerch" Width="150" Height="20"  />
+                <MenuItem Header="DateEnd" Click="MenuItemSearch_Click">
+                    <TextBox x:Name="TbDateEndSearch" Width="150" Height="20"  />
                 </MenuItem>
             </MenuItem>
         </Menu>
         <Menu Grid.Column="1">
-            <MenuItem Header="Serch" >
-                <MenuItem Header="DateOrder" Click="MenuItemIdOrderRoomSerch_Click">
-                    <TextBox  x:Name="TbIdOrderRoomSerch"  Width="50" Height="20"></TextBox>
+            <MenuItem Header="Search" >
+                <MenuItem Header="IdOrderRoom" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdOrderRoomSearch"  Width="50" Height="20"></TextBox>
                 </MenuItem>
-                <MenuItem Header="DateStart" Click="MenuItemIdRoomRoomSerch_Click">
-                    <TextBox  x:Name="TbIdRoomRoomSerch"  Width="50" Height="20"></TextBox>
+                <MenuItem Header="IdRoomRoom" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdRoomRoomSearch"  Width="50" Height="20"></TextBox>
                 </MenuItem>
             </MenuItem>
         </Menu>

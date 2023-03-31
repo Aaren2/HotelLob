@@ -9,6 +9,40 @@
       Title="ClientPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="Window" >
+                <MenuItem x:Name="MIEmployeeWindow" Header="EmployeeWindow" Click="MenuItemWindow_Click">
+                </MenuItem>
+                <MenuItem x:Name="MIEmployeePostWindow" Header="EmployeePostWindow" Click="MenuItemWindow_Click">
+                </MenuItem>
+                <MenuItem x:Name="MIPostWindow" Header="PostWindow" Click="MenuItemWindow_Click">
+                </MenuItem>
+                <MenuItem x:Name="MIClientWindow" Header="ClientWindow" Click="MenuItemWindow_Click">
+                </MenuItem>
+                <MenuItem x:Name="MICategoryWindow" Header="CategoryWindow" Click="MenuItemWindow_Click">
+                </MenuItem>
+                <MenuItem x:Name="MIGenderWindow" Header="GenderWindow" Click="MenuItemWindow_Click">
+                </MenuItem>
+                <MenuItem x:Name="MITrackingWindow" Header="TrackingWindow" Click="MenuItemWindow_Click">
+                </MenuItem>
+                <MenuItem x:Name="MIOrderWindow" Header="OrderWindow" Click="MenuItemWindow_Click">
+                </MenuItem>
+                <MenuItem x:Name="MIOrderRoomWindow" Header="OrderRoomWindow" Click="MenuItemWindow_Click">
+                </MenuItem>
+                <MenuItem x:Name="MIRoomWindow" Header="RoomWindow" Click="MenuItemWindow_Click">
+                </MenuItem>
+                <MenuItem x:Name="MITypeRoomWindow" Header="TypeRoomWindow" Click="MenuItemWindow_Click">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Exit" x:Name="Exit" Click="Exit_Click">
+            </MenuItem>
+            </Menu>
+        <DataGrid Name="dataGrid1"  Grid.Row="1" LoadingRow="dataGrid1_LoadingRow"   >
+
+        </DataGrid>
     </Grid>
 </Page>

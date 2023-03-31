@@ -1,5 +1,4 @@
-﻿using HotelLob.DB;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -33,8 +32,8 @@ namespace HotelLob.Windows
         private DB.Login authorization;
         private int IdEmployee;
         private Employee EmployeeCheck = new Employee();
- 
-        public AddUpdEmployeeWindow(DB.Login authorization, int IdEmployee,bool True)
+        private MenuWindows menuWindows;
+        public AddUpdEmployeeWindow(DB.Login authorization, int IdEmployee,bool True,  MenuWindows menuWindows)
         {
             InitializeComponent();
             CmbGender.ItemsSource = context.Gender.ToList();
@@ -47,6 +46,7 @@ namespace HotelLob.Windows
             this.authorization = authorization;
             this.True = True;
             this.IdEmployee = IdEmployee;
+            this.menuWindows =  menuWindows;
 
             if (True)
             {
@@ -70,8 +70,7 @@ namespace HotelLob.Windows
         }
         private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MenuWindows menuWindows = new MenuWindows(authorization);
-            menuWindows.Show();
+            menuWindows.Visibility = Visibility.Visible;
             this.Close();
         }
 
