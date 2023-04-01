@@ -38,6 +38,169 @@
                 <MenuItem x:Name="MITypeRoomWindow" Header="TypeRoomWindow" Click="MenuItemWindow_Click">
                 </MenuItem>
             </MenuItem>
+            <!--SearchOrder-->
+            <MenuItem x:Name="SearchOrder" Header="Search" Visibility="Collapsed" >
+                <MenuItem Name="IdOrder" Header="IdOrder" Click="MenuItemSearch_Click">
+                    <TextBox x:Name="TbIdOrderSearch" Width="50" Height="20"  />
+                </MenuItem>
+                <MenuItem  Name="DateOrder" Header="DateOrder" Click="MenuItemSearch_Click">
+                    <TextBox x:Name="TbDateOrderSearch" Width="150" Height="20"  />
+                </MenuItem>
+                <MenuItem Name="IdEmployeeOrder" Header="IdEmployee" Click="MenuItemSearch_Click">
+                    <TextBox x:Name="TbIdEmployeeOrderSearch" Width="50" Height="20"  />
+                </MenuItem>
+                <MenuItem Name="IdClientOrder" Header="IdClient" Click="MenuItemSearch_Click">
+                    <TextBox x:Name="TbIdClientOrderSearch" Width="50" Height="20"  />
+                </MenuItem>
+                <MenuItem Header="DateStart" Click="MenuItemSearch_Click">
+                    <TextBox x:Name="TbDateStartSearch" Width="150" Height="20"  />
+                </MenuItem>
+                <MenuItem Header="DateEnd" Click="MenuItemSearch_Click">
+                    <TextBox x:Name="TbDateEndSearch" Width="150" Height="20"  />
+                </MenuItem>
+            </MenuItem>
+            <!--SearchOrderRoom-->
+            <MenuItem x:Name="SearchOrderRoom" Header="Search" Visibility="Collapsed" >
+                <MenuItem Name="IdOrderRoom" Header="IdOrder" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdOrderRoomSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="IdRoomRoom" Header="IdRoom" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdRoomRoomSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+            </MenuItem>
+            <!--SearchRoom-->
+            <MenuItem x:Name="SearchRoom" Header="Search" Visibility="Collapsed" >
+                <MenuItem Name="IdRoom" Header="IdRoom" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdRoomSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="IdTypeRoomRoom" Header="IdTypeRoom" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdTypeRoomRoomSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+            </MenuItem>
+            <!--SearchTypeRoom-->
+            <MenuItem x:Name="SearchTypeRoom" Header="Search" Visibility="Collapsed" >
+                <MenuItem Name="IdTypeRoom" Header="IdTypeRoom" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdTypeRoomSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="Count" Header="Count" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbCountSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+            </MenuItem>
+            <!--SearchClient-->
+            <MenuItem x:Name="SearchClient" Header="Search" Visibility="Collapsed" >
+                <MenuItem Name="IdClient" Header="IdClient" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdClientSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="ClientFirstName" Header="FirstName" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbClientFirstNameSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="ClientLastName" Header="LastName" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbClientLastNameSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="ClientMiddleName" Header="MiddleName" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbClientMiddleNameSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="ClientPhone" Header="Phone" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbClientPhoneSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="ClientEmail" Header="Email" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbClientEmailSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="IdGenderClient" Header="IdGender" Click="MenuItemSearch_Click">
+                    <ComboBox x:Name="TbIdGenderClientSearch"  Width="50" Height="20"></ComboBox>
+                </MenuItem>
+            </MenuItem>
+            <!--SearchEmployee-->
+            <MenuItem x:Name="SearchEmployee" Header="Search" Visibility="Collapsed" >
+                <MenuItem Name="IdEmployee" Header="IdEmployee" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdEmployeeSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="EmployeeFirstName" Header="FirstName" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbEmployeeFirstNameSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="EmployeeLastName" Header="LastName" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbEmployeeLastNameSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="EmployeeMiddleName" Header="MiddleName" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbEmployeeMiddleNameSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="IdGenderEmployee" Header="IdGender" Click="MenuItemSearch_Click">
+                    <ComboBox x:Name="TbIdGenderEmployeeSearch"  Width="50" Height="20"></ComboBox>
+                </MenuItem>
+                <MenuItem Name="DateOfBirthday" Header="DateOfBirthday" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbDateOfBirthdaySearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="IdCategoryEmployee" Header="IdCategory" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdCategoryEmployeeSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+            </MenuItem>
+            <!--SearchGender-->
+            <MenuItem x:Name="SearchGender" Header="Search" Visibility="Collapsed" >
+                <MenuItem Name="IdGender" Header="IdGender" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdGenderSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="Gender" Header="Gender" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbGenderSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+            </MenuItem>
+            <!--SearchCategory-->
+            <MenuItem x:Name="SearchCategory" Header="Search" Visibility="Collapsed" >
+                <MenuItem Name="IdCategory" Header="IdCategory" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdCategorySearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="NameCategory" Header="NameCategory" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbNameCategorySearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="Coefficient" Header="Coefficient" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbCoefficientSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+            </MenuItem>
+            <!--SearchEmployeePost-->
+            <MenuItem x:Name="SearchEmployeePost" Header="Search" Visibility="Collapsed" >
+                <MenuItem Name="IdEmployeePostEmployeePost" Header="IdEmployeePost" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdEmployeePostEmployeePostSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="IdEmployeePost" Header="IdEmployee" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdEmployeePostSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="IdPostPost" Header="IdPost" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdPostPostSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+            </MenuItem>
+            <!--SearchPost-->
+            <MenuItem x:Name="SearchPost" Header="Search" Visibility="Collapsed" >
+                <MenuItem Name="IdPost" Header="IdPost" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdPostSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="NamePost" Header="NamePost" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbNamePostSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="CodePost" Header="CodePost" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbCodePostSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+            </MenuItem>
+            <!--SearchTracking-->
+            <MenuItem x:Name="SearchTracking" Header="Search" Visibility="Collapsed" >
+                <MenuItem Name="IdTracking" Header="IdTracking" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdTrackingSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="IdLoginTracking" Header="IdLogin" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbIdLoginTrackingSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="DateStartT" Header="DateStart" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbDateStartTSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="DateEndT" Header="DateEnd" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbDateEndTSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+                <MenuItem Name="Error" Header="Error" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbErrorSearch"  Width="50" Height="20"></TextBox>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="MITimer"  >
+                <MenuItem x:Name="MI"></MenuItem>
+            </MenuItem>
+
             <MenuItem Header="Exit" x:Name="Exit" Click="Exit_Click">
             </MenuItem>
             </Menu>

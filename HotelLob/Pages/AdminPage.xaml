@@ -142,11 +142,11 @@
                 <MenuItem Name="PassportSeries" Header="PassportSeries" Click="MenuItemSearch_Click">
                     <TextBox  x:Name="TbPassportSeriesSearch"  Width="50" Height="20"></TextBox>
                 </MenuItem>
-                <MenuItem Name="DateOdBirthday" Header="DateOdBirthday" Click="MenuItemSearch_Click">
-                    <TextBox  x:Name="TbDateOdBirthdaySearch"  Width="50" Height="20"></TextBox>
+                <MenuItem Name="DateOfBirthday" Header="DateOfBirthday" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbDateOfBirthdaySearch"  Width="50" Height="20"></TextBox>
                 </MenuItem>
                 <MenuItem Name="IdCategoryEmployee" Header="IdCategory" Click="MenuItemSearch_Click">
-                    <TextBox  x:Name="TbEmployeeIdCategorySearch"  Width="50" Height="20"></TextBox>
+                    <TextBox  x:Name="TbIdCategoryEmployeeSearch"  Width="50" Height="20"></TextBox>
                 </MenuItem>
                 <MenuItem Name="EmployeeSalary" Header="Salary" Click="MenuItemSearch_Click">
                     <TextBox  x:Name="TbSalarySearch"  Width="50" Height="20"></TextBox>
@@ -166,8 +166,8 @@
                 <MenuItem Name="IdCategory" Header="IdCategory" Click="MenuItemSearch_Click">
                     <TextBox  x:Name="TbIdCategorySearch"  Width="50" Height="20"></TextBox>
                 </MenuItem>
-                <MenuItem Name="NameCatedory" Header="NameCatedory" Click="MenuItemSearch_Click">
-                    <TextBox  x:Name="TbNameCatedorySearch"  Width="50" Height="20"></TextBox>
+                <MenuItem Name="NameCategory" Header="NameCategory" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbNameCategorySearch"  Width="50" Height="20"></TextBox>
                 </MenuItem>
                 <MenuItem Name="Coefficient" Header="Coefficient" Click="MenuItemSearch_Click">
                     <TextBox  x:Name="TbCoefficientSearch"  Width="50" Height="20"></TextBox>
@@ -226,12 +226,15 @@
                 <MenuItem Name="DateStartT" Header="DateStart" Click="MenuItemSearch_Click">
                     <TextBox  x:Name="TbDateStartTSearch"  Width="50" Height="20"></TextBox>
                 </MenuItem>
-                <MenuItem Name="IdClientDateEndT" Header="IdClientDateEnd" Click="MenuItemSearch_Click">
-                    <TextBox  x:Name="TbIdClientDateEndTSearch"  Width="50" Height="20"></TextBox>
+                <MenuItem Name="DateEndT" Header="DateEnd" Click="MenuItemSearch_Click">
+                    <TextBox  x:Name="TbDateEndTSearch"  Width="50" Height="20"></TextBox>
                 </MenuItem>
                 <MenuItem Name="Error" Header="Error" Click="MenuItemSearch_Click">
                     <TextBox  x:Name="TbErrorSearch"  Width="50" Height="20"></TextBox>
                 </MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="MITimer" Visibility="Collapsed" >
+                <MenuItem x:Name="MI"></MenuItem>
             </MenuItem>
 
 
