@@ -51,7 +51,10 @@ namespace HotelLob.Pages
                 {
                     try
                     {
-                        Dispatcher.Invoke(() => MITimer.Header = (DateTime.Now - context.Tracking.ToList().Where(i => i.IdLogin.Equals(authorization.IdLogin)).Last().DateStart));
+                        DateTime dateTimeStart = Convert.ToDateTime(context.Tracking.ToList().Where(i => i.IdLogin.Equals(authorization.IdLogin)).Last().DateStart.Hour + ":" + context.Tracking.ToList().Where(i => i.IdLogin.Equals(authorization.IdLogin)).Last().DateStart.Minute + ":" + context.Tracking.ToList().Where(i => i.IdLogin.Equals(authorization.IdLogin)).Last().DateStart.Second);
+                        DateTime dateTimeNow = Convert.ToDateTime(DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second);
+                        string date = dateTimeNow - dateTimeStart + "";
+                        Dispatcher.Invoke(() => MITimer.Header = date.Substring(0, 8));
                         Dispatcher.Invoke(() => MI.Header = DateTime.Now.ToString());
                         Thread.Sleep(1000);
                     }
