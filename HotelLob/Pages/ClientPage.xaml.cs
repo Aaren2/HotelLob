@@ -190,12 +190,13 @@ namespace HotelLob.Pages
                     {
                         e.Row.Background = new SolidColorBrush(Colors.Red);
                     }
+                    else
+                    {
+                        e.Row.Background = new SolidColorBrush(Colors.White);
+                    }
                 }
             }
-            else
-            {
-                e.Row.Background = new SolidColorBrush(Colors.White);
-            }
+            
         }
 
         private void MenuItemSearch_Click(object sender, RoutedEventArgs e)

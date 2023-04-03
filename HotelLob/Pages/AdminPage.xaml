@@ -262,13 +262,15 @@
 
             <MenuItem Header="Exit" x:Name="Exit" Click="Exit_Click">
             </MenuItem>
+            <MenuItem Header="Test" x:Name="Test" Click="Test_Click">
+            </MenuItem>
         </Menu>
-        <DataGrid Name="dataGrid1"  Grid.Row="1" LoadingRow="dataGrid1_LoadingRow"   >
+        <DataGrid Name="dataGrid1"  Grid.Row="1" LoadingRow="dataGrid1_LoadingRow" SelectionChanged="dataGrid1_SelectionChanged" >
         </DataGrid>
         <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"  >
-            <Button Name="BtnAdd" FontSize="20" Width="200" Content="Добавить заказ" Margin="0,0,50,0" Click="BtnAdd_Click" />
-            <Button Name="BtnUpd" FontSize="20" Width="200" Content="Изменить заказ" Click="BtnUpd_Click"/>
-            <Button Name="BtnDel" FontSize="20" Width="200" Content="Удалить заказ" Margin="50,0,0,0" Click="BtnDel_Click"/>
+            <Button Name="BtnAdd" FontSize="20" Width="200" Content="Добавить" Margin="0,0,50,0" Click="BtnAdd_Click" />
+            <Button Name="BtnUpd" FontSize="20" Width="200" Content="Изменить" Click="BtnUpd_Click"/>
+            <Button Name="BtnDel" FontSize="20" Width="200" Content="Удалить" Margin="50,0,0,0" Click="BtnDel_Click"/>
         </WrapPanel>
     </Grid>
 </Page>

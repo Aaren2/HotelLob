@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HotelLob.Windows"
         mc:Ignorable="d"
         Title="AddUpdRoomWindow" WindowStartupLocation="CenterScreen" Height="600" Width="400">
-    <Grid >
+    <Grid Background="#FFBD8D71" >
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Добавить комнату" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 50 0 0"/>
 

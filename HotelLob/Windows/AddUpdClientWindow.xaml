@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HotelLob.Windows"
         mc:Ignorable="d"
         Title="AddUpdClientWindow" WindowStartupLocation="CenterScreen" Height="630" Width="400">
-    <Grid >
+    <Grid Background="#FFBD8D71" >
         <Grid.RowDefinitions>
             <RowDefinition Height="450"/>
             <RowDefinition Height="*"/>

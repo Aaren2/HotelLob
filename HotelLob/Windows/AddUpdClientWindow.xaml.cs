@@ -51,7 +51,14 @@ namespace HotelLob.Windows
                 TbMiddleName.Text = context.Client.ToList().Where(i => i.IdClient.Equals(IdClient)).FirstOrDefault().MiddleName;
                 TbPhone.Text = context.Client.ToList().Where(i => i.IdClient.Equals(IdClient)).FirstOrDefault().Phone;
                 TbEmail.Text = context.Client.ToList().Where(i => i.IdClient.Equals(IdClient)).FirstOrDefault().Email;
-                CmbGender.SelectedItem = context.Client.ToList().Where(i => i.IdClient.Equals(IdClient)).FirstOrDefault().IdGender;
+                if (context.Client.ToList().Where(i => i.IdClient.Equals(IdClient)).FirstOrDefault().IdGender == "м")
+                {
+                    CmbGender.SelectedIndex = 1;
+                }
+                else if (context.Client.ToList().Where(i => i.IdClient.Equals(IdClient)).FirstOrDefault().IdGender == "ж")
+                {
+                    CmbGender.SelectedIndex = 0;
+                }
                 TbLogin.Text = context.Login.ToList().Where(i => i.IdClient.Equals(IdClient)).FirstOrDefault().Login1;
                 TbPassword1.Text = context.Login.ToList().Where(i => i.IdClient.Equals(IdClient)).FirstOrDefault().Password;
 

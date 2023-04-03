@@ -15,49 +15,51 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Image Source="/Image1.png" Stretch="Fill" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
         <TextBlock Text="Регистрация" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="139,20,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,100,0,0">
 
-            <TextBlock Text="Ведите имя" FontSize="14" Margin="0 20 0 0"/>
+            <TextBlock Text="Ведите имя" FontSize="14" Margin="0 20 0 0" Background="#FFBD8D71"/>
             <TextBox x:Name="TbFirstName" FontSize="14" Margin="0 5 0 0"/>
-            <TextBlock Text="Ведите фамилию" FontSize="14" Margin="0 20 0 0"/>
+            <TextBlock Text="Ведите фамилию" FontSize="14" Margin="0 20 0 0" Background="#FFBD8D71"/>
             <TextBox x:Name="TbLastName" FontSize="14" Margin="0 5 0 0"/>
-            <TextBlock Text="Ведите отчество" FontSize="14" Margin="0 20 0 0"/>
+            <TextBlock Text="Ведите отчество" FontSize="14" Margin="0 20 0 0" Background="#FFBD8D71"/>
             <TextBox x:Name="TbMidlleName" FontSize="14" Margin="0 5 0 0"/>
-            <TextBlock Text="Ведите номер телефона" FontSize="14" Margin="0 20 0 0"/>
+            <TextBlock Text="Ведите номер телефона" FontSize="14" Margin="0 20 0 0" Background="#FFBD8D71"/>
             <TextBox x:Name="TbPhone" FontSize="14" Margin="0 5 0 0"/>
-            <TextBlock Text="Ведите почту" FontSize="14" Margin="0 20 0 0"/>
+            <TextBlock Text="Ведите почту" FontSize="14" Margin="0 20 0 0" Background="#FFBD8D71"/>
             <TextBox x:Name="TbEmail" FontSize="14" Margin="0 5 0 0"/>
 
-            <TextBlock Text="Ведите код паспорта" FontSize="14" Margin="0 20 0 0"/>
+            <TextBlock Text="Ведите код паспорта" FontSize="14" Margin="0 20 0 0" Background="#FFBD8D71"/>
             <TextBox x:Name="TbPassportCode" FontSize="14" Margin="0 5 0 0"/>
-            <TextBlock Text="Ведите серию паспорта" FontSize="14" Margin="0 20 0 0"/>
+            <TextBlock Text="Ведите серию паспорта" FontSize="14" Margin="0 20 0 0" Background="#FFBD8D71"/>
             <TextBox x:Name="TbPassportSeries" FontSize="14" Margin="0 5 0 0"/>
         </StackPanel>
         <StackPanel Margin="0,100,0,0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">
 
 
-            <TextBlock Text="Ведите ваш день рождения" FontSize="14" Margin="0 10 0 0"/>
+            <TextBlock Text="Ведите ваш день рождения" FontSize="14" Margin="0 10 0 0" Background="#FFBD8D71"/>
             <DatePicker x:Name="DPB" FontSize="14" Margin="0 5 0 0"/>
-            <TextBlock Text="Ваш пол" FontSize="14" Margin="0 20 0 0"/>
+            <TextBlock Text="Ваш пол" FontSize="14" Margin="0 20 0 0" Background="#FFBD8D71"/>
             <ComboBox x:Name="CmbGender"  FontSize="14" Margin="0 5 0 0"/>
-            <TextBlock Text="Ведите логин" FontSize="14" Margin="0 20 0 0"/>
+            <TextBlock Text="Ведите логин" FontSize="14" Margin="0 20 0 0" Background="#FFBD8D71"/>
             <TextBox x:Name="TbLogin" FontSize="14" Margin="0 5 0 0"/>
-            <TextBlock Text="Ведите пароль" FontSize="14" Margin="0 20 0 0"/>
+            <TextBlock Text="Ведите пароль" FontSize="14" Margin="0 20 0 0" Background="#FFBD8D71"/>
             <PasswordBox x:Name="TbPassword1" FontSize="14" Margin="0 5 0 0"/>
-            <TextBlock Text="Подтвердите пароль" FontSize="14" Margin="0 20 0 0"/>
+            <TextBlock Text="Подтвердите пароль" FontSize="14" Margin="0 20 0 0" Background="#FFBD8D71"/>
             <PasswordBox x:Name="TbPassword2" FontSize="14" Margin="0 5 0 0"/>
-            <TextBlock Text="Код сотрудника" FontSize="14" Margin="0 20 0 0"/>
+            <TextBlock Text="Код сотрудника" FontSize="14" Margin="0 20 0 0" Background="#FFBD8D71"/>
             <PasswordBox x:Name="PbCode" FontSize="14" Margin="0 5 0 0"/>
-            <TextBlock x:Name="TbKapcha" Text="" FontSize="14" Margin="0 20 0 0"/>
+            <TextBlock x:Name="TbKapcha" Text="" FontSize="14" Margin="0 20 0 0" Background="#FFBD8D71"/>
             <PasswordBox x:Name="PbKapcha" FontSize="14" Margin="0 5 0 0"/>
 
         </StackPanel>
         <StackPanel Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Button x:Name="BtnLogin" Content="Войти" FontSize="14" Margin="0 20 0 0" Click="BtnLogin_Click"/>
-            <TextBlock Text="Авторизация" FontSize="10" Foreground="Blue" HorizontalAlignment="Center" Margin="0 10 0 20" MouseLeftButtonUp="TextBlock_MouseLeftButtonUpAuth"/>
-            <TextBlock Text="Регистрация пользователей" FontSize="10" Foreground="Blue" HorizontalAlignment="Center" Margin="0 0 0 20" MouseLeftButtonUp="TextBlock_MouseLeftButtonUpReg"/>
+            <TextBlock Text="Авторизация" FontSize="10" Foreground="Blue" HorizontalAlignment="Center" Margin="0 10 0 20" MouseLeftButtonUp="TextBlock_MouseLeftButtonUpAuth" Background="#FFBD8D71"/>
+            <TextBlock Text="Регистрация пользователей" FontSize="10" Foreground="Blue" HorizontalAlignment="Center" Margin="0 0 0 20" MouseLeftButtonUp="TextBlock_MouseLeftButtonUpReg" Background="#FFBD8D71"/>
         </StackPanel>
+        
 
     </Grid>
 </Window>

@@ -93,9 +93,17 @@ namespace HotelLob.Pages
 
         private void dataGrid1_LoadingRow(object sender, DataGridRowEventArgs e)
         {
-            if (e.Row.GetIndex() <= context.Tracking.Count() - 1) {
-                if (context.Tracking.ToList().Where(i=>i.IdLogin.Equals(authorization.IdLogin)).ElementAtOrDefault(e.Row.GetIndex()).Error != "Closed") {  
-                    e.Row.Background= new SolidColorBrush(Colors.Red);}}
+            if (e.Row.GetIndex() <= context.Tracking.Count() - 1) 
+            {
+                if (context.Tracking.ToList().Where(i=>i.IdLogin.Equals(authorization.IdLogin)).ElementAtOrDefault(e.Row.GetIndex()).Error != "Closed") 
+                {  
+                    e.Row.Background= new SolidColorBrush(Colors.Red);
+                }
+                else
+                {
+                    e.Row.Background = new SolidColorBrush(Colors.White);
+                }
+            }
         }
     }
     

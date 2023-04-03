@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HotelLob.Windows"
         mc:Ignorable="d"
         Title="AddUpdEmployeeWindow" WindowStartupLocation="CenterScreen" Height="730"  Width="400">
-    <Grid>
+    <Grid Background="#FFBD8D71">
         <Grid.RowDefinitions>
             <RowDefinition Height="580"/>
             <RowDefinition Height="*"/>
@@ -49,8 +49,6 @@
             <TextBox x:Name="TbPassword1" FontSize="14" Margin="0 5 0 0"/>
             <TextBlock Text="Подтвердите пароль" FontSize="14" Margin="0 20 0 0"/>
             <PasswordBox x:Name="TbPassword2" FontSize="14" Margin="0 5 0 0"/>
-            <TextBlock Text="Код сотрудника" FontSize="14" Margin="0 20 0 0"/>
-            <ComboBox x:Name="CmbPost"  FontSize="14" Margin="0 5 0 0"/>
             <TextBlock Text="Катигория сотрудника" FontSize="14" Margin="0 20 0 0"/>
             <ComboBox x:Name="CmbCategory"  FontSize="14" Margin="0 5 0 0"/>
 

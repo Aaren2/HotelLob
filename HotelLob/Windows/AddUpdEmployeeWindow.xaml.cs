@@ -38,11 +38,9 @@ namespace HotelLob.Windows
             InitializeComponent();
             CmbGender.ItemsSource = context.Gender.ToList();
             CmbGender.DisplayMemberPath = "Gender1";
-            CmbPost.ItemsSource = context.Post.ToList();
-            CmbPost.DisplayMemberPath = "NamePost";
+            CmbGender.SelectedIndex = 0;
             CmbCategory.ItemsSource = context.Category.ToList();
-            CmbPost.DisplayMemberPath = "NameCategory";
-
+            CmbCategory.DisplayMemberPath = "NameCategory";
             this.authorization = authorization;
             this.True = True;
             this.IdEmployee = IdEmployee;
@@ -56,13 +54,18 @@ namespace HotelLob.Windows
                 TbMidlleName.Text = context.Employee.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().MiddleName;
                 TbPhone.Text = context.Employee.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().Phone;
                 TbEmail.Text = context.Employee.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().Email; 
-                CmbGender.SelectedItem = context.Employee.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().IdGender;
+                if(context.Employee.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().IdGender=="м"){ 
+                    CmbGender.SelectedIndex = 1;
+                }
+                else if (context.Employee.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().IdGender == "ж")
+                {
+                    CmbGender.SelectedIndex = 0;
+                }
                 TbPassportCode.Text = context.Employee.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().PassportCode;              
                 TbPassportSeries.Text = context.Employee.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().PassportSeries;
                 TbSalary.Text = context.Employee.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().Salary+"";
                 DPB.SelectedDate = context.Employee.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().DateOfBirthday;
-                CmbPost.SelectedItem = context.EmployeePost.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().IdPost;
-                CmbCategory.SelectedItem = context.Employee.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().IdCategory;
+                CmbCategory.SelectedIndex = context.Employee.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().IdCategory-1;
                 TbLogin.Text= context.Login.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().Login1;
                 TbPassword1.Text = context.Login.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().Password;
             }
@@ -178,10 +181,6 @@ namespace HotelLob.Windows
                     employee.DateOfBirthday = DPB.SelectedDate.Value;
                     employee.IdCategory = (CmbCategory.SelectedItem as DB.Category).IdCategory;
                     context.SaveChanges();
-                    EmployeePost employeePost = new EmployeePost();
-                    employeePost.IdEmployee = this.IdEmployee;
-                    employeePost.IdPost = (CmbPost.SelectedItem as DB.Post).IdPost;
-                    context.SaveChanges();
                     Login login = new Login();
                     login.IdEmployee = this.IdEmployee;
                     login.Login1=TbLogin.Text;
@@ -293,10 +292,6 @@ namespace HotelLob.Windows
                     employee.DateOfBirthday = DPB.SelectedDate.Value;
                     employee.IdCategory = (CmbCategory.SelectedItem as DB.Category).IdCategory;
                     context.Employee.Add(employee);
-                    context.SaveChanges();
-                    EmployeePost employeePost = new EmployeePost();
-                    employeePost.IdPost = (CmbPost.SelectedItem as DB.Post).IdPost;
-                    context.EmployeePost.Add(employeePost);
                     context.SaveChanges();
                     Login login = new Login();
                     login.Login1 = TbLogin.Text;

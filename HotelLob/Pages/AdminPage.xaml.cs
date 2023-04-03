@@ -32,6 +32,7 @@ namespace HotelLob.Pages
         public int Id = -1;
         private int Index=-1;
         public string Header;
+        public string Testt;
         private DB.Login authorization;
         private MenuWindows menuWindows;
         private bool trackingBool=false;
@@ -41,6 +42,9 @@ namespace HotelLob.Pages
             InitializeComponent();            
             this.authorization = authorization;
             this.menuWindows = menuWindows;
+            BtnAdd.IsEnabled = false;
+            BtnUpd.IsEnabled = false;
+            BtnDel.IsEnabled = false;
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
@@ -62,6 +66,9 @@ namespace HotelLob.Pages
             SearchLogin.Visibility = Visibility.Collapsed;
             SearchTracking.Visibility = Visibility.Collapsed;
             MITimer.Visibility = Visibility.Collapsed;
+            BtnAdd.IsEnabled = false;
+            BtnUpd.IsEnabled = false;
+            BtnDel.IsEnabled = false;
             trackingBool = false;
             MenuItem menuItem = (MenuItem)sender;
             Header = ""+menuItem.Header;
@@ -75,46 +82,28 @@ namespace HotelLob.Pages
                     break;
                 case "EmployeePostWindow":
                     SearchEmployeePost.Visibility = Visibility.Visible;
-                    dataGrid1.ItemsSource = context.EmployeePost.ToList();
-                    BtnAdd.IsEnabled = true;
-                    BtnUpd.IsEnabled = true;
-                    BtnDel.IsEnabled = true;                   
+                    dataGrid1.ItemsSource = context.EmployeePost.ToList();                  
                     break;
                 case "PostWindow":
                     SearchPost.Visibility = Visibility.Visible;
-                    dataGrid1.ItemsSource = context.Post.ToList();
-                    BtnAdd.IsEnabled = false;
-                    BtnUpd.IsEnabled = false;
-                    BtnDel.IsEnabled = false;                    
+                    dataGrid1.ItemsSource = context.Post.ToList();                  
                     break;
                 case "CategoryWindow":
                     SearchCategory.Visibility = Visibility.Visible;
-                    dataGrid1.ItemsSource = context.Category.ToList();
-                    BtnAdd.IsEnabled = false;
-                    BtnUpd.IsEnabled = false;
-                    BtnDel.IsEnabled = false;                    
+                    dataGrid1.ItemsSource = context.Category.ToList();                 
                     break;
                 case "GenderWindow":
                     SearchGender.Visibility = Visibility.Visible;
-                    dataGrid1.ItemsSource = context.Gender.ToList();
-                    BtnAdd.IsEnabled = false;
-                    BtnUpd.IsEnabled = false;
-                    BtnDel.IsEnabled = false;                    
+                    dataGrid1.ItemsSource = context.Gender.ToList();                   
                     break;
                 case "LoginWindow":
                     SearchLogin.Visibility = Visibility.Visible;
-                    dataGrid1.ItemsSource = context.Login.ToList();
-                    BtnAdd.IsEnabled = false;
-                    BtnUpd.IsEnabled = false;
-                    BtnDel.IsEnabled = false;                    
+                    dataGrid1.ItemsSource = context.Login.ToList();                   
                     break;
                 case "TrackingWindow":
                     SearchTracking.Visibility = Visibility.Visible;
                     MITimer.Visibility = Visibility.Visible;
                     dataGrid1.ItemsSource = context.Tracking.ToList();
-                    BtnAdd.IsEnabled = false;
-                    BtnUpd.IsEnabled = false;
-                    BtnDel.IsEnabled = false;
                     thread = new Thread(() =>
                     {
                         while (true)
@@ -161,22 +150,15 @@ namespace HotelLob.Pages
                 case "RoomWindow":
                     SearchRoom.Visibility = Visibility.Visible;
                     dataGrid1.ItemsSource = context.Room.ToList();
-                    BtnAdd.IsEnabled = true;
-                    BtnUpd.IsEnabled = false;
-                    BtnDel.IsEnabled = false;                    
+                    BtnAdd.IsEnabled = true;                  
                     break;
                 case "TypeRoomWindow":
                     SearchTypeRoom.Visibility = Visibility.Visible;
-                    dataGrid1.ItemsSource = context.TypeRoom.ToList();
-                    BtnAdd.IsEnabled = false;
-                    BtnUpd.IsEnabled = false;
-                    BtnDel.IsEnabled = false;                    
+                    dataGrid1.ItemsSource = context.TypeRoom.ToList();                 
                     break;
                 default:
                     break;
             }
-
-
         }
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -187,11 +169,11 @@ namespace HotelLob.Pages
                     addUpdEmployeeWindow.Show();
                     menuWindows.Visibility=Visibility.Hidden;
                     break;
-                case "EmployeePostWindow":
-                    addUpdEmployeeWindow = new AddUpdEmployeeWindow(authorization, Id, false, menuWindows);
-                    addUpdEmployeeWindow.Show();
-                    menuWindows.Visibility=Visibility.Hidden;
-                    break;
+                //case "EmployeePostWindow":
+                //    addUpdEmployeeWindow = new AddUpdEmployeeWindow(authorization, Id, false, menuWindows);
+                //    addUpdEmployeeWindow.Show();
+                //    menuWindows.Visibility=Visibility.Hidden;
+                //    break;
                 case "ClientWindow":
                     AddUpdClientWindow addUpdClientWindow = new AddUpdClientWindow(authorization, Id, false, menuWindows);
                     addUpdClientWindow.Show();
@@ -219,7 +201,6 @@ namespace HotelLob.Pages
                     break;
             }
         }
-
         private void BtnUpd_Click(object sender, RoutedEventArgs e)
         {
             if (Id != -1)
@@ -231,11 +212,11 @@ namespace HotelLob.Pages
                         addUpdEmployeeWindow.Show();
                         menuWindows.Visibility=Visibility.Hidden;
                         break;
-                    case "EmployeePostWindow":
-                        addUpdEmployeeWindow = new AddUpdEmployeeWindow(authorization, Id, true, menuWindows);
-                        addUpdEmployeeWindow.Show();
-                        menuWindows.Visibility=Visibility.Hidden;
-                        break;
+                    //case "EmployeePostWindow":
+                    //    addUpdEmployeeWindow = new AddUpdEmployeeWindow(authorization, Id, true, menuWindows);
+                    //    addUpdEmployeeWindow.Show();
+                    //    menuWindows.Visibility=Visibility.Hidden;
+                    //    break;
                     case "ClientWindow":
                         AddUpdClientWindow addUpdClientWindow = new AddUpdClientWindow(authorization, Id, true, menuWindows);
                         addUpdClientWindow.Show();
@@ -262,7 +243,6 @@ namespace HotelLob.Pages
             
             }
         }
-
         private void BtnDel_Click(object sender, RoutedEventArgs e)
         {
             if (Id != -1)
@@ -284,24 +264,8 @@ namespace HotelLob.Pages
                         dataGrid1.ItemsSource = context.Employee.ToList();
                         break;
                     case "EmployeePostWindow":
-                        employeePosts = new EmployeePost[] { };
-                        if (context.EmployeePost.ToList().Where(j => j.IdEmployee.Equals(this.Id)).Count() == 1)
-                        {
-                            employee = context.Employee.First(i => i.IdEmployee.Equals(this.Id));
-                            context.Employee.Remove(employee);
-                            for (int i = 0; i < context.EmployeePost.ToList().Where(j => j.IdEmployee.Equals(this.Id)).Count(); i++)
-                            {
-                                employeePosts[i] = context.EmployeePost.ToList().Where(j => j.IdEmployee.Equals(this.Id)).ElementAtOrDefault(i);
-                                context.EmployeePost.Remove(employeePosts[i]);
-                            }
-                            login = context.Login.First(i => i.IdEmployee.Equals(this.Id));
-                            context.Login.Remove(login);
-                        }
-                        else {
-                            TextBlock x = dataGrid1.Columns[1].GetCellContent(dataGrid1.Items[Index]) as TextBlock;
-                            EmployeePost employeePost = context.EmployeePost.First(j => j.IdEmployee.Equals(Convert.ToInt32(x.Text)));
-                            context.EmployeePost.Remove(employeePost);
-                        }
+                        EmployeePost employeePost = context.EmployeePost.First(i => i.IdEmployeePost.Equals(this.Id));
+                        context.EmployeePost.Remove(employeePost);
                         context.SaveChanges();
                         dataGrid1.ItemsSource = context.Employee.ToList();
                         break;                  
@@ -334,7 +298,6 @@ namespace HotelLob.Pages
                 }
             }
         }
-
         private void dataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (!dataGrid1.SelectedIndex.Equals(-1))
@@ -342,9 +305,9 @@ namespace HotelLob.Pages
                 Index = dataGrid1.SelectedIndex;
                 TextBlock x = dataGrid1.Columns[0].GetCellContent(dataGrid1.Items[Index]) as TextBlock;
                 Id = Convert.ToInt32(x?.Text);
+                
             }
         }
-
         private void dataGrid1_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             if (trackingBool)
@@ -354,13 +317,16 @@ namespace HotelLob.Pages
                     if (context.Tracking.ToList().ElementAtOrDefault(e.Row.GetIndex()).Error != "Closed")
                     {
                         e.Row.Background = new SolidColorBrush(Colors.Red);
+                        Testt += e.Row.GetIndex()+"\n";
+                    } 
+                    else {
+                        e.Row.Background = new SolidColorBrush(Colors.White);
                     }
                 }
             }
-            else {
-                e.Row.Background = new SolidColorBrush(Colors.White);
-            }
+           
         }
+
         private void MenuItemSearch_Click(object sender, RoutedEventArgs e)
         {
             MenuItem menuItem = (MenuItem)sender;
@@ -535,5 +501,13 @@ namespace HotelLob.Pages
                     break;
             }
         }
+
+
+        private void Test_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(Testt);
+        }
+
+
     }
 }
