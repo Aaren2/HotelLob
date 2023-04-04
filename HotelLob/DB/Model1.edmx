@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище asdModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище asdModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="IdCategory" />
@@ -29,7 +29,7 @@
           <Key>
             <PropertyRef Name="IdEmployee" />
           </Key>
-          <Property Name="IdEmployee" Type="int" Nullable="false" />
+          <Property Name="IdEmployee" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="MiddleName" Type="nvarchar" MaxLength="150" />
@@ -523,8 +523,7 @@
             <End Role="Tracking" EntitySet="Tracking" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="asdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -974,19 +973,19 @@
             <End Role="Room" EntitySet="Room" />
           </AssociationSet>
           <FunctionImport Name="OrderDate">
-            <Parameter Name="IdOrd" Mode="In" Type="Int32" />
+          <Parameter Name="IdOrd" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="OrderEmp" ReturnType="Collection(Int32)">
-            <Parameter Name="IdEmp" Mode="In" Type="Int32" />
+          <Parameter Name="IdEmp" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="OrderRoomClient" ReturnType="Collection(Int32)">
-            <Parameter Name="IdCli" Mode="In" Type="Int32" />
+          <Parameter Name="IdCli" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PostEmployee" ReturnType="Collection(String)">
-            <Parameter Name="IdPost" Mode="In" Type="Int32" />
+          <Parameter Name="IdPost" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SalaryCoef">
-            <Parameter Name="IdEmp" Mode="In" Type="Int32" />
+          <Parameter Name="IdEmp" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />

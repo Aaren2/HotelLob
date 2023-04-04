@@ -15,7 +15,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Добавить Клиента" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,50,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TbName" Text="Добавить Клиента" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,50,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Top"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0"  >
 
 

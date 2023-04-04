@@ -49,6 +49,7 @@ namespace HotelLob.Windows
             if (True)
             {
                 BtnLogin.Content = "Обновить";
+                TbName.Text = "Обновить сотрудника";
                 TbFirstName.Text = context.Employee.ToList().Where(i=>i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().FirstName;
                 TbLastName.Text = context.Employee.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().LastName;
                 TbMidlleName.Text = context.Employee.ToList().Where(i => i.IdEmployee.Equals(IdEmployee)).FirstOrDefault().MiddleName;
@@ -186,8 +187,7 @@ namespace HotelLob.Windows
                     login.Login1=TbLogin.Text;
                     login.Password=TbPassword1.Text;
                     context.SaveChanges();
-                    MenuWindows menuWindows = new MenuWindows(authorization);
-                    menuWindows.Show();
+                    menuWindows.Visibility = Visibility.Visible;
                     this.Close();
                 }
             }
@@ -298,8 +298,7 @@ namespace HotelLob.Windows
                     login.Password = TbPassword1.Text;
                     context.Login.Add(login);
                     context.SaveChanges();
-                    MenuWindows menuWindows = new MenuWindows(authorization);
-                    menuWindows.Show();
+                    menuWindows.Visibility = Visibility.Visible;
                     this.Close();
                 }
             }

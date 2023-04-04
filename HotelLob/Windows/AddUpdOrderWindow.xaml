@@ -8,7 +8,7 @@
         Title="AddUpdOrderWindow" WindowStartupLocation="CenterScreen" Height="600" Width="400">
     <Grid Background="#FFBD8D71" >
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Добавить заказ" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 50 0 0"/>
+            <TextBlock x:Name="TbName" Text="Добавить заказ" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 50 0 0"/>
 
             <TextBlock Text="Ведите дату начала отдыха" FontSize="14" Margin="0 20 0 0"/>
             <DatePicker x:Name="DPDS" FontSize="14" Margin="0 5 0 0"/>

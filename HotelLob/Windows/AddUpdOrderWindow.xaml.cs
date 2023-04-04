@@ -46,6 +46,7 @@ namespace HotelLob.Windows
             if (True)
             {
                 BtnLogin.Content = "Обновить";
+                TbName.Text = "Обновить заказ";
                 CmbClient.SelectedIndex = context.Order.ToList().Where(i => i.IdOrder == this.IdOrder).FirstOrDefault().IdClient - 1;
                 CmbRoom.SelectedIndex = context.OrderRoom.ToList().Where(i => i.IdOrder == this.IdOrder).FirstOrDefault().IdRoom - 200;
                 DPDS.SelectedDate = context.Order.ToList().Where(i => i.IdOrder == this.IdOrder).FirstOrDefault().DateStart;

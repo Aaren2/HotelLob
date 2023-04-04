@@ -46,6 +46,7 @@ namespace HotelLob.Windows
             if (True)
             {
                 BtnLogin.Content = "Обновить";
+                TbName.Text = "Обновить клиента";
                 TbFirstName.Text = context.Client.ToList().Where(i => i.IdClient.Equals(IdClient)).FirstOrDefault().FirstName;
                 TbLastName.Text = context.Client.ToList().Where(i => i.IdClient.Equals(IdClient)).FirstOrDefault().LastName;
                 TbMiddleName.Text = context.Client.ToList().Where(i => i.IdClient.Equals(IdClient)).FirstOrDefault().MiddleName;

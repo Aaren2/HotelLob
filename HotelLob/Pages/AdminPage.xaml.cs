@@ -21,6 +21,7 @@ using HotelLob.Windows;
 using static HotelLob.ClassHelper.EFClass;
 using System.Reflection;
 using System.Threading;
+using System.Data.SqlTypes;
 
 namespace HotelLob.Pages
 {
@@ -78,7 +79,7 @@ namespace HotelLob.Pages
                     dataGrid1.ItemsSource = context.Employee.ToList();
                     BtnAdd.IsEnabled = true;
                     BtnUpd.IsEnabled = true;
-                    BtnDel.IsEnabled = true;
+
                     break;
                 case "EmployeePostWindow":
                     SearchEmployeePost.Visibility = Visibility.Visible;
@@ -243,6 +244,12 @@ namespace HotelLob.Pages
             
             }
         }
+        private void del() {
+            for (int i = 0; i < context.EmployeePost.ToList().Where(l => l.IdEmployee.Equals(this.Id)).Count(); i++)
+            {
+                context.EmployeePost.Remove(context.EmployeePost.ToList().Where(l => l.IdEmployee.Equals(this.Id)).ElementAtOrDefault(i));
+            }
+        }
         private void BtnDel_Click(object sender, RoutedEventArgs e)
         {
             if (Id != -1)
@@ -250,18 +257,7 @@ namespace HotelLob.Pages
                 switch (Header)
                 {
                     case "EmployeeWindow":
-                        Employee employee = context.Employee.First(i => i.IdEmployee.Equals(this.Id));
-                        context.Employee.Remove(employee);
-                        EmployeePost[] employeePosts = new EmployeePost[] { };
-                        for (int i = 0; i < context.EmployeePost.ToList().Where(j => j.IdEmployee.Equals(this.Id)).Count(); i++)
-                        {
-                            employeePosts[i] = context.EmployeePost.ToList().Where(j => j.IdEmployee.Equals(this.Id)).ElementAtOrDefault(i);
-                            context.EmployeePost.Remove(employeePosts[i]);
-                        }
-                        Login login = context.Login.First(i => i.IdEmployee.Equals(this.Id));
-                        context.Login.Remove(login);
-                        context.SaveChanges();
-                        dataGrid1.ItemsSource = context.Employee.ToList();
+                        
                         break;
                     case "EmployeePostWindow":
                         EmployeePost employeePost = context.EmployeePost.First(i => i.IdEmployeePost.Equals(this.Id));
@@ -501,13 +497,5 @@ namespace HotelLob.Pages
                     break;
             }
         }
-
-
-        private void Test_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show(Testt);
-        }
-
-
     }
 }
